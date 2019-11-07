@@ -1,12 +1,4 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -14,6 +6,7 @@ import {
   View,
   Text,
   StatusBar,
+  Vibration
 } from 'react-native';
 
 import {
@@ -27,6 +20,13 @@ import {
 import {LoginButton, AccessToken} from 'react-native-fbsdk';
 
 const App = () => {
+  
+  useEffect(() => {
+    const DURATION = 10000;
+    const PATTERN = [1000, 2000, 3000];
+    Vibration.vibrate(DURATION);
+  }, []);
+
   return (
     <>
       <StatusBar barStyle="dark-content" />
